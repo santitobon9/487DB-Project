@@ -30,9 +30,9 @@ For this project we are going to run some performance experiments using postgres
 C.Demonstrate you have loaded data into that system
 - See the screenshots that we placed in screenshot folder.
 
-BigQuery:
-
 D. Include lessons learned or issues encountered
+
+BigQuery:
 - Error loading onektup.csv file with error message "Error while reading data, error message: Error detected while
 parsing row starting at position: 149. Error: Bad character(ASC II 0) Encountered". I think this error happened
 when I program generating data and save to file. It was occured by writing the bad characters. To resolve this problem,
@@ -46,4 +46,12 @@ with "bucket" is yourbucket that you have created. badfile.csv and fixedfile.csv
 And recognized because I set a default scope. It is limited to modify a file if we are not having permission. In order 
 to change it, I went to Virtual Machine section and stop VM instance, Then I opened VM instance details, pressed Edit 
 and change Cloud API access scope --> "Allow full access to all cloud APIs".  
-  
+
+PostgreSQL:
+We ran into several errors while trying to load the data into the postgresql database. 
+- First we forgot to create the table before importing the data, which gave an error.
+- The next problem we ran into was when importing the data we found that it was also reading in the header line, which gave us this error:
+ERROR: invalid input syntax for type integer: "unique1" CONTEXT: COPY onektuple, line 1, column unique1: "unique1". We fixed this by removing the header line.
+- The next error we got was it was reading each line as a single attribute because there were " " surrounding each row. Giving us the following error: 
+ERROR: extra data after last expected column CONTEXT: COPY tenktuple, line 1: "unique1,unique2,two,four,ten,twenty,onePercent,tenPercent,twentyPercent,fiftyPercent,unique3,evenOne...".
+We fixed this by removing the " " on each row.
