@@ -16,7 +16,7 @@ B.Which system you will be working with and why you chose it
 BigQuery: 
 The idea of our work is that we would run some performance experiments. So that we think about designing 
 a large scale ingestion of analytics events and the system needs to be fast enough. As a result, we may 
-think of Bigquery. Here is a reason why we choose the Bigquery. First, Bigquery is a google analytics DB. 
+think of Bigquery. Here is a reason why we choose Bigquery. First, Bigquery is a google analytics DB. 
 Each query is transformed into an execution tree by Dremel (Google query engine).The data is retrieved 
 from Colossus and aggregated…So, everything runs on Google Jupiter with a high-speed network. Second, it 
 is user-friendly. It’s accessible via its web UI, command-line tool, or client library (written in C#, 
@@ -24,10 +24,11 @@ Go, Java, Node.js, PHP...Third, it has the potential to scale up. We can just st
 the databases. Last, it has a reasonable cost. BigQuery, it’s charged per query and storage…everything 
 else is free (almost). Loading data is free, but we pay for streaming insert.
 
-	
+PostgreSQL:
+For this project we are going to run some performance experiments using postgresql. Postgresql is a popular open source SQL database. One of the reason we chose postgresql is because we have used it once before but wanted to refine our skills with using it. One of the advantages of postgresql is its a object-relational database, allowing for the support of user-defined objects. Another advantage is that it supports a extensive list of data types. A convience of using postgres is that google cloud platform makes it easy to set up a vm instance for a postgresql database. 	
 
 C.Demonstrate you have loaded data into that system
-- See the screenshots that I place in screenshot folder.
+- See the screenshots that we placed in screenshot folder.
 
 BigQuery:
 
